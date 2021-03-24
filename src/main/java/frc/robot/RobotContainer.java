@@ -7,6 +7,8 @@
 
 package frc.robot;
 
+import frc.robot.commands.AutonomousDistance;
+import frc.robot.commands.AutonomousTime;
 import edu.wpi.first.wpilibj.GenericHID;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.XboxController;
@@ -75,7 +77,8 @@ public class RobotContainer {
     m_chooser.addOption("Move forward", new MoveForward(m_driveSubsystem));   
     m_chooser.addOption("DeployFuel", new DeployFuel(m_driveSubsystem, m_rampSubsystem));  
     m_chooser.addOption("RobotChallanges", new RobotChallanges(m_driveSubsystem));  
-    
+    m_chooser.setDefaultOption("Auto Routine Distance", new AutonomousDistance(m_driveSubsystem));
+    m_chooser.addOption("Auto Routine Time", new AutonomousTime(m_driveSubsystem));
     SmartDashboard.putData("Autonomous select", m_chooser);
 
     // Put the chooser on the dashboard

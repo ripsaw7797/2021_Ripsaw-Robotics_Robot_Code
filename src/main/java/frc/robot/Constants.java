@@ -53,4 +53,7 @@ public final class Constants {
  
   //Other Drivetrain Constants
   public static final int kwheelDiameter = 6;
+  public static final double kCountsPerRevolution = 1440.0;
+  public static final double kWheelDiameterInch = 6;
+
 }
