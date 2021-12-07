@@ -10,6 +10,7 @@ package frc.robot;
 import frc.robot.commands.AutonomousDistance;
 import frc.robot.commands.AutonomousTime;
 import edu.wpi.first.wpilibj.GenericHID;
+import edu.wpi.first.wpilibj.GenericHID.Hand;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.XboxController;
 //import edu.wpi.first.wpilibj.shuffleboard.Shuffleboard;
@@ -49,7 +50,7 @@ public class RobotContainer {
   
 
   // sticks
-  private final Joystick driverstick = new Joystick(Constants.kdriverstickPort);
+  private final XboxController driverstick = new XboxController(Constants.kdriverstickPort);
   private final Joystick operatorstick = new Joystick(Constants.koperatorstickPort);
 
 
@@ -65,7 +66,7 @@ public class RobotContainer {
     configureButtonBindings();
 
     m_driveSubsystem.setDefaultCommand(
-      new RunCommand(() -> m_driveSubsystem.manualDrive(-driverstick.getY(), driverstick.getX()), m_driveSubsystem));
+      new RunCommand(() -> m_driveSubsystem.manualDrive(-driverstick.getY(Hand.kLeft), driverstick.getX(Hand.kRight)), m_driveSubsystem));
       System.out.println("setDewfaultCommnd");
 
     // Add commands to the autonomous command chooser
